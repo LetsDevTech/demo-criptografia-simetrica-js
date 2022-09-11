@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo de criptografia simétrica</title>
+        <link rel="stylesheet" type="text/css" href="./style.css">
+    </head>
+    <body>
+        <div id="container" class="grid-container">
+            <div class="row1 grid2" >
+                <div id="left" class="form">
+                    <label for="pwd1">Senha</label>
+                    <input type="password" placeholder="Senha..." id="pwd1" name="pwd1">
+                    <label for="msg1">Mensagem</label>
+                    <input type="text" placeholder="Mensagem..." id="msg1" name="msg1">
+                    <label for="iv1">IV</label>
+                    <input type="text" readonly id="iv1" name="iv1">
+                    <button id="btEncrypt" onclick="btEncryptClick()">Criptografar</button>
+                    <div style="border: none;"></div>
+                    <p id="console1" class="output"></p>
+                </div>
+                <div id="right" class="form">
+                    <label for="pwd2">Senha</label>
+                    <input type="password" placeholder="Senha..." id="pwd2" name="pwd2">
+                    <button id="btDecrypt" onclick="btDecryptClick()">Descriptografar</button>
+                    <p id="console2" class="output"></p>
+                </div>
+            </div>
+            <div class="row2 grid2"> 
+                <div class="crypted form">
+                    <p id="encryptedB64" class="output"></p>
+                </div>
+                <div class="decrypted form">
+                    <p id="decryptedMessage" class="output"></p>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="./index.js" type="module"></script>
+    <script type="text/javascript">
+        
+    </script>
+</html>

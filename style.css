@@ -1,0 +1,48 @@
+
+.grid-container {
+    font-size: large;
+    padding: 1em;
+    margin: 1em;
+    height: 90vh;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 75% auto;
+    grid-auto-flow: column;
+    grid-gap: 0px;
+}
+
+.grid2 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    grid-auto-flow: row;
+}
+
+.grid-container div {
+    border: 1px solid black;
+}
+
+.form {
+    padding: 1em;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto auto;
+    grid-auto-flow: row;
+}
+
+.form > * {
+    margin: auto;
+}
+
+
+.padding1 {
+    padding: 1em;
+}
+
+.output {
+    word-wrap: break-word;
+    max-width: 290px;
+    margin: 0.2em;
+    padding: 0.2em;
+    
+}
