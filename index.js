@@ -18,21 +18,21 @@ async function derivarChaveDeSenha(senha) {
     // cria o SAL
     ret.salt = SALT // o sal tem que ser o mesmo NO CASO DESSE EXEMPLO
     
-    let pbkdf2Params = {
-        name: "PBKDF2",
+    let hkdfParams = {
+        name: "HKDF",
         hash: "SHA-256",
         salt: ret.salt,
-        iterations: INTERACTIONS
+        info: new Uint8Array(0)
     }
     
-    let baseKey = await crypto.subtle.importKey("raw", encoder.encode(senha).buffer, "PBKDF2", false, ["deriveKey"])
+    let baseKey = await crypto.subtle.importKey("raw", encoder.encode(senha).buffer, "HKDF", false, ["deriveKey"])
 
     let aesKeyGenParams = {
         name: "AES-GCM",
         length: KEY_LENGTH
     }
 
-    ret.key = await crypto.subtle.deriveKey( pbkdf2Params, baseKey, aesKeyGenParams, false, ["decrypt", "encrypt"])
+    ret.key = await crypto.subtle.deriveKey( hkdfParams, baseKey, aesKeyGenParams, false, ["decrypt", "encrypt"])
 
     return ret
 }
@@ -192,7 +192,8 @@ async function btDecryptClick() {
         erroConsole2("Mensagem descriptografada")
     }
     catch (e) {
-        erroConsole2("erro descriptografando mensagem :" + e.message)
+        console.log(e)
+        erroConsole2("erro descriptografando mensagem :" + e)
     }
 }
 
